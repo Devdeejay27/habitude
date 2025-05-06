@@ -89,9 +89,9 @@ class HabitDatabase extends ChangeNotifier {
           // add the current date if it's not already in the list
           habit.completedDays.add(
             DateTime(
-              today.day,
-              today.month,
               today.year,
+              today.month,
+              today.day,
             ),
           );
         }
@@ -100,9 +100,9 @@ class HabitDatabase extends ChangeNotifier {
           // remove the current date if the habit is marked as not completed
           habit.completedDays.removeWhere(
             (date) =>
-                date.day == DateTime.now().day &&
+                date.year == DateTime.now().year &&
                 date.month == DateTime.now().month &&
-                date.year == DateTime.now().year,
+                date.day == DateTime.now().day,
           );
         }
         // save the updated habits back to the db
